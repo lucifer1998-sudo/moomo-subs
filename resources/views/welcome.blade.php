@@ -445,7 +445,7 @@
                     <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 underline">Dashboard</a>
                 @else
                     <li class="pr-2">
-                        <a href="href={{ route('login') }}"
+                        <a href="{{ route('login') }}"
                            class="bg-base border-2 border-black text-black font-bold py-2 px-4 rounded-full">
                             Login
                         </a>
