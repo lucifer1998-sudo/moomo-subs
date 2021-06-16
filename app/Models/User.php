@@ -53,7 +53,7 @@ class User extends Authenticatable
      */
     public function isAdmin(){
         $roles = $this -> roles() -> where ('role_id',1) -> count();
-        if ($roles > 1) return true;
+        if ($roles > 0) return true;
         else return false;
     }
 }

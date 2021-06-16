@@ -440,6 +440,9 @@
                     <li class="pr-20 font-lato text-lg"><a>Music Index</a></li>
                     <li class="pr-20 font-lato text-lg"><a>Series</a></li>
                     <li class="pr-20 font-lato text-lg"><a>Fancams</a></li>
+                    @if (auth() -> user() && auth() -> user() -> isAdmin())
+                        <li class="pr-20 font-lato text-lg"><a>Admin</a></li>
+                    @endif
                 </ul>
                 <ul class="flex flex-row -mr-20">
                     @if (Route::has('login'))
