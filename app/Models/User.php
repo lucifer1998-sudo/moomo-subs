@@ -40,4 +40,20 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function roles(){
+        return $this -> hasMany(UserRole::class,'user_id','id');
+    }
+
+    /**
+     * @return bool
+     */
+    public function isAdmin(){
+        $roles = $this -> roles() -> where ('role_id',1) -> count();
+        if ($roles > 1) return true;
+        else return false;
+    }
 }
