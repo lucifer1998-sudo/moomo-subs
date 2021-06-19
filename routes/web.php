@@ -15,11 +15,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $requests = \App\Models\Request::take(3)-> orderBy('id','desc')->get();
+    return view('welcome' , compact('requests'));
 });
 
 Route::get('/dashboard', function () {
-    return view('welcome');
+    $requests = \App\Models\Request::take(3)-> orderBy('id','desc')->get();
+    return view('welcome' , compact('requests'));
 })->middleware(['auth'])->name('dashboard');
 
 //Admin Routes
