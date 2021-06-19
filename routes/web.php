@@ -28,6 +28,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/request/create',[AdminController::class,'addRequest']) -> name('admin.request.create');
     Route::get('/videos/create',[AdminController::class,'addVideos']) -> name('admin.videos.create');
     Route::get('/albums/create',[AdminController::class,'addAlbums']) -> name('admin.albums.create');
+    Route::post('/request',[AdminController::class,'saveAddRequest']) -> name('admin.request.store');
 });
 
 

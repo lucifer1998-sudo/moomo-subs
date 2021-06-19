@@ -18,4 +18,7 @@ class AdminController extends Controller
     public function addAlbums(){
         return view ('admin.add-albums');
     }
+    public function saveAddRequest( Request $request){
+        dd($request -> all());
+    }
 }
