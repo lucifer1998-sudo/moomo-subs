@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     {{--        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">--}}
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <!-- Styles -->
     <style>
         /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -286,6 +287,7 @@
         .grid-cols-1 {
             grid-template-columns:repeat(1, minmax(0, 1fr))
         }
+
         .dropdown:hover .dropdown-menu {
             display: block;
         }
@@ -448,21 +450,28 @@
                             <div class="dropdown inline-block relative">
                                 <a class="inline-flex items-center">
                                     <span class="mr-1">Admin</span>
-                                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/> </svg>
+                                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
+                                         viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                                    </svg>
                                 </a>
                                 <ul class="dropdown-menu absolute hidden text-gray-700 pt-1 z-10">
                                     <li class="">
-                                        <a href="{{ route('admin.request.create') }}" class="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap">
+                                        <a href="{{ route('admin.request.create') }}"
+                                           class="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap">
                                             Requests
                                         </a>
                                     </li>
                                     <li class="">
-                                        <a href="{{ route('admin.videos.create') }}" class="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" >
+                                        <a href="{{ route('admin.videos.create') }}"
+                                           class="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap">
                                             Videos
                                         </a>
                                     </li>
                                     <li class="">
-                                        <a  href="{{ route('admin.albums.create') }}" class="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap">
+                                        <a href="{{ route('admin.albums.create') }}"
+                                           class="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap">
                                             Albums
                                         </a>
                                     </li>
@@ -507,9 +516,26 @@
         </div>
     </header>
     <main class="mb-auto ">
+        @if (session('success'))
+            <div class="bg-green-500 p-2 m-4 border border-red-400 text-red-700 px-4 py-3 rounded relative success-alert" role="alert">
+                <span class="block sm:inline text-white text-lg font-lato">{{ session('success') }}</span>
+                <span class="absolute top-0 bottom-0 right-0 px-4 py-3" onclick="hideAlert(this)">
+                    <svg class="fill-current h-6 w-6 text-red-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title><path
+                            d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/></svg>
+                </span>
+            </div>
+        @endif
         @yield('content')
     </main>
     <footer class="mt-8 bg-blue-500">Footer</footer>
 </div>
 </body>
+<script>
+    $(document).ready(function(){
+
+    })
+    function hideAlert(e){
+        $('.success-alert').hide();
+    }
+</script>
 </html>
