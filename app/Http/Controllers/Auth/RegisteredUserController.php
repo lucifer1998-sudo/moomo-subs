@@ -45,9 +45,10 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+        $role_id = str_replace(url('/'), '', url()->previous()) == '/admin/register' ? '3' : '2'; 
         UserRole::create([
             'user_id' => $user -> id,
-            'role_id' => '2'
+            'role_id' => $role_id
         ]);
 
         event(new Registered($user));

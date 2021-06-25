@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/register', [RegisteredUserController::class, 'create'])
                 ->middleware('guest')
                 ->name('register');
+Route::get('/admin/register', [RegisteredUserController::class, 'create'])
+->middleware('guest')
+->name('admin-register');
 
 Route::post('/register', [RegisteredUserController::class, 'store'])
                 ->middleware('guest');
