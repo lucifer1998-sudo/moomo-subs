@@ -12,7 +12,7 @@
                 <div class="carousel-item @if ($key == 0) active @endif">
                     {{--                    <img class="d-block w-100" src="..." alt="First slide">--}}
                     <iframe class="px-20 py-5 mb-8 d-block w-100" width="100%" height="515"
-                            src="{{ $request -> link }}?mute=1&autoplay=1">
+                            src="{{ $request -> link }}">
                     </iframe>
                 </div>
             @endforeach
