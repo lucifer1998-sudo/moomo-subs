@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
+use App\Models\Albums;
 use App\Models\Videos;
+use App\Models\AlbumVideos;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -34,7 +37,8 @@ class AdminController extends Controller
      */
 
     public function addAlbums(){
-        return view ('admin.add-albums');
+        $videos = Videos ::all();
+        return view ('admin.add-albums',compact('videos'));
     }
 
     /**
@@ -58,6 +62,25 @@ class AdminController extends Controller
         return redirect()->back()->with('success','Video Successfully Added');
     }
     public function saveAlbums(Request $request){
-
+        $file = $request -> image;
+        $file_name=mt_rand(0,1000).$file->getClientOriginalName();
+        if (!is_dir(public_path().'\uploads')){
+            mkdir(public_path().'\uploads', 0755, true);
+        }
+        $file->move(public_path().'\uploads', $file_name);
+        $album = Albums::create([
+            'title' => $request -> title,
+            'image' => $file_name
+        ]);
+        
+        if (isset($request->videos) && count($request->videos) > 0){
+            foreach ($request->videos as $key => $video){
+                AlbumVideos::create([
+                    'video_id'  => $video,
+                    'album_id'  => $album -> id
+                ]);
+            }
+        }
+        return redirect()->back()->with('success','Video Successfully Added');
     }
 }
