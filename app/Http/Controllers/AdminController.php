@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Videos;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -48,5 +49,15 @@ class AdminController extends Controller
             'sub_status' => $request -> sub
         ]);
         return redirect() -> back() -> with('success' , 'Request Succesfully Added');
+    }
+    public function saveVideos(Request $request){
+        Videos::create([
+            'title' => $request -> title,
+            'link'  => $request -> link
+        ]);
+        return redirect()->back()->with('success','Video Successfully Added');
+    }
+    public function saveAlbums(Request $request){
+
     }
 }
