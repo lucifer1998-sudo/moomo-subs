@@ -21,7 +21,9 @@
                     <th scope="row">{{$key+1}}</th>
                     <td class="w-2/5">{{$video -> title}}</td>
                     <td class="w-2/5">{{$video -> link}}</td>
-                    <td class=""><a href="{{route('admin.album.video.delete',['id'=>$video->id,'album'=>$album->id])}}"><i class="fa fa-trash" title="Delete"></a></i></td>
+                    @if (auth()->user()->isSuperAdmin())
+                      <td class=""><a href="{{route('admin.album.video.delete',['id'=>$video->id,'album'=>$album->id])}}"><i class="fa fa-trash" title="Delete"></a></i></td>
+                    @endif
                 </tr>
             @endif
         @endforeach
