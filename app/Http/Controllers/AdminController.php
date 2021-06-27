@@ -32,6 +32,11 @@ class AdminController extends Controller
         $albums = Albums::all();
         return view('admin.albums-index',compact('albums'));
     }
+
+    public function albumDetails($id){
+        $album=Albums::find($id);
+        return view('admin.album-videos',compact('album'));
+    }
     /**
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
@@ -67,14 +72,14 @@ class AdminController extends Controller
             'link'  => $request -> link,
             'sub_status' => $request -> sub
         ]);
-        return redirect() -> back() -> with('success' , 'Request Succesfully Added');
+        return redirect() -> route('admin.request.index') -> with('success' , 'Request Succesfully Added');
     }
     public function saveVideos(Request $request){
         Videos::create([
             'title' => $request -> title,
             'link'  => $request -> link
         ]);
-        return redirect()->back()->with('success','Video Successfully Added');
+        return redirect()->route('admin.videos.index')->with('success','Video Successfully Added');
     }
     public function saveAlbums(Request $request){
         $file = $request -> image;
@@ -96,6 +101,11 @@ class AdminController extends Controller
                 ]);
             }
         }
-        return redirect()->back()->with('success','Video Successfully Added');
+        return redirect()->route('admin.albums.index')->with('success','Video Successfully Added');
+    }
+    public function deleteAlbumVideo($album_id,$video_id){
+        
+        AlbumVideos::where(['video_id' => $video_id , 'album_id' => $album_id])->delete();
+        return redirect()->back();
     }
 }

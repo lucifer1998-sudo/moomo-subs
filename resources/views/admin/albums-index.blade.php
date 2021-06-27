@@ -9,18 +9,19 @@
             @foreach($albums as $key => $album)
                 <div class=" -mx-1 lg:-mx-4 p-10">
                     <article class="overflow-hidden rounded-lg shadow-lg">
-                        <a href="#">
-                            <img alt="Placeholder" class="block h-auto w-full"
-                                src="\uploads\{{$album->image}}">
-                        </a>
+                        <div class="h-80">
+                            <a href="{{route('admin.album.details',['id'=>$album ->id])}}">
+                                <img alt="Placeholder" class="block object-scale-down w-full"
+                                    src="\uploads\{{$album->image}}">
+                            </a>
+                        </div>
                         <header class="flex items-center justify-center my-2 leading-tight p-2 md:p-4">
                             <h1 class="text-lg">
-                                <a class="no-underline hover:underline text-black" href="#">
-                                    Article Title
-                                </a>
+                                <span class="no-underline hover:underline text-black" >
+                                    {{$album -> title}}
+                                </span>
                             </h1>
                         </header>
-
                     </article>
                 </div>
             @endforeach
