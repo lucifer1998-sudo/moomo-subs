@@ -23,6 +23,10 @@ class AdminController extends Controller
         return view ('admin.request-index',compact('requests'));
     }
 
+    public function videosListing(){
+        $videos = Videos::all();
+        return view('admin.videos-index',compact('videos'));
+    }
     /**
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */

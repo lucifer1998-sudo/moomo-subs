@@ -28,6 +28,7 @@ Route::get('/dashboard', function () {
 Route::prefix('admin')->group(function () {
     Route::get('/',[AdminController::class,'index']);
     Route::get('/requests',[AdminController::class,'requestsListing'])->name('admin.request.index');
+    Route::get('/videos',[AdminController::class,'videosListing'])->name('admin.videos.index');
     Route::get('/request/create',[AdminController::class,'addRequest']) -> name('admin.request.create');
     Route::get('/videos/create',[AdminController::class,'addVideos']) -> name('admin.videos.create');
     Route::get('/albums/create',[AdminController::class,'addAlbums']) -> name('admin.albums.create');
