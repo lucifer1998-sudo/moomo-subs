@@ -22,7 +22,9 @@
                 <td>{{$request -> title}}</td>
                 <td>{{$request -> link}}</td>
                 <td>{{$request -> sub_status}}</td>
-                <td><a href="{{route('admin.request.delete',['id'=>$request->id])}}"><i class="fa fa-trash"></i></a></td>
+                @if (auth()->user()->isSuperAdmin())
+                  <td><a href="{{route('admin.request.delete',['id'=>$request->id])}}"><i class="fa fa-trash"></i></a></td>
+                @endif
             </tr>
         @endforeach
   </tbody>

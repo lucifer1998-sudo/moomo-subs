@@ -442,13 +442,14 @@
                 <div>
                     <a href="#">Logo</a>
                 </div>
+
                 <ul class="flex flex-row ml-36">
                     <li class="pr-20 font-lato text-lg"><a> Home </a></li>
                     <li class="pr-20 font-lato text-lg"><a>Albums</a></li>
                     <li class="pr-20 font-lato text-lg"><a>Music Index</a></li>
                     <li class="pr-20 font-lato text-lg"><a>Series</a></li>
                     <li class="pr-20 font-lato text-lg"><a>Fancams</a></li>
-                    @if ( auth() -> user() && auth() -> user() -> isAdmin() )
+                    @if ( auth() -> user() && ( auth() -> user() -> isAdmin() || auth() -> user() -> isSuperAdmin() ) )
                         <li class="pr-20 font-lato text-lg">
                             <div class="dropdown inline-block relative">
                                 <a class="inline-flex items-center">

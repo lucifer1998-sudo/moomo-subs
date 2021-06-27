@@ -52,6 +52,11 @@ class User extends Authenticatable
      * @return bool
      */
     public function isAdmin(){
+        $roles = $this -> roles() -> where ('role_id',3) -> count();
+        if ($roles > 0) return true;
+        else return false;
+    }
+    public function isSuperAdmin(){
         $roles = $this -> roles() -> where ('role_id',1) -> count();
         if ($roles > 0) return true;
         else return false;

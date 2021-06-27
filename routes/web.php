@@ -25,7 +25,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 //Admin Routes
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->middleware('admin')->group(function () {
     Route::get('/',[AdminController::class,'index']);
     Route::get('/requests',[AdminController::class,'requestsListing'])->name('admin.request.index');
     Route::get('/videos',[AdminController::class,'videosListing'])->name('admin.videos.index');
