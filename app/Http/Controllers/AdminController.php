@@ -7,6 +7,7 @@ use App\Models\Albums;
 use App\Models\Videos;
 use App\Models\AlbumVideos;
 use Illuminate\Http\Request;
+use App\Models\Request as RequestModel;
 
 class AdminController extends Controller
 {
@@ -15,6 +16,11 @@ class AdminController extends Controller
      */
     public function index(){
         return view('admin.index');
+    }
+
+    public function requestsListing(){
+        $requests = RequestModel::all();
+        return view ('admin.request-index',compact('requests'));
     }
 
     /**
