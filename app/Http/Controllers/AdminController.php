@@ -27,6 +27,11 @@ class AdminController extends Controller
         $videos = Videos::all();
         return view('admin.videos-index',compact('videos'));
     }
+    
+    public function albumsListing(){
+        $albums = Albums::all();
+        return view('admin.albums-index',compact('albums'));
+    }
     /**
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
@@ -73,7 +78,7 @@ class AdminController extends Controller
     }
     public function saveAlbums(Request $request){
         $file = $request -> image;
-        $file_name=mt_rand(0,1000).$file->getClientOriginalName();
+        $file_name=$file->getClientOriginalName().mt_rand(0,1000);
         if (!is_dir(public_path().'\uploads')){
             mkdir(public_path().'\uploads', 0755, true);
         }
