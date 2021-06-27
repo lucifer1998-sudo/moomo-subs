@@ -34,7 +34,9 @@ Route::prefix('admin')->group(function () {
     Route::get('/videos/create',[AdminController::class,'addVideos']) -> name('admin.videos.create');
     Route::get('/albums/create',[AdminController::class,'addAlbums']) -> name('admin.albums.create');
     Route::post('/request',[AdminController::class,'saveAddRequest']) -> name('admin.request.store');
+    Route::get('/request/del/{id}',[AdminController::class,'deleteRequest'])->name('admin.request.delete');
     Route::post('/video',[AdminController::class,'saveVideos']) -> name('admin.videos.store');
+    Route::get('/video/del/{id}',[AdminController::class,'deleteVideo'])->name('admin.video.delete');
     Route::post('/album',[AdminController::class,'saveAlbums']) -> name('admin.albums.store');
     Route::get('/album/details/{id}',[AdminController::class,'albumDetails']) -> name('admin.album.details');
     Route::get('/{album}/video/delete/{id}',[AdminController::class,'deleteAlbumVideo'])->name('admin.album.video.delete');

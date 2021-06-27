@@ -11,6 +11,7 @@
       <th scope="col">#</th>
       <th scope="col">Video Title</th>
       <th scope="col">Video Link</th>
+      <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
@@ -19,6 +20,7 @@
                 <th scope="row">{{$key+1}}</th>
                 <td class="w-2/5">{{$video -> title}}</td>
                 <td class="w-2/5">{{$video -> link}}</td>
+                <td><a href="{{route('admin.video.delete',['id'=>$video->id])}}"><i class="fa fa-trash" title="delete"></i></a></td>
             </tr>
         @endforeach
   </tbody>

@@ -12,6 +12,7 @@
       <th scope="col">Request Title</th>
       <th scope="col">Request Link</th>
       <th scope="col">Are We Subbing?</th>
+      <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
@@ -21,6 +22,7 @@
                 <td>{{$request -> title}}</td>
                 <td>{{$request -> link}}</td>
                 <td>{{$request -> sub_status}}</td>
+                <td><a href="{{route('admin.request.delete',['id'=>$request->id])}}"><i class="fa fa-trash"></i></a></td>
             </tr>
         @endforeach
   </tbody>

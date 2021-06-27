@@ -104,8 +104,15 @@ class AdminController extends Controller
         return redirect()->route('admin.albums.index')->with('success','Video Successfully Added');
     }
     public function deleteAlbumVideo($album_id,$video_id){
-        
         AlbumVideos::where(['video_id' => $video_id , 'album_id' => $album_id])->delete();
+        return redirect()->back();
+    }
+    public function deleteVideo($id){
+        Videos::find($id)->delete();
+        return redirect()->back();
+    }
+    public function deleteRequest($id){
+        RequestModel::find($id)->delete();
         return redirect()->back();
     }
 }
