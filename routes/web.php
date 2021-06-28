@@ -18,7 +18,9 @@ Route::get('/', function () {
     $requests = \App\Models\Request::take(3)-> orderBy('id','desc')->get();
     return view('welcome' , compact('requests'));
 });
-
+Route::get('/test', function () {
+    return view('layouts.dashboard');
+});
 Route::get('/dashboard', function () {
     $requests = \App\Models\Request::take(3)-> orderBy('id','desc')->get();
     return view('welcome' , compact('requests'));

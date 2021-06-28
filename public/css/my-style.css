@@ -1,0 +1,118 @@
+nav ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+nav{
+    z-index: 555;
+}
+.owl-nav button{
+    position: absolute;
+    font-size: 55px !important;
+}
+.owl-nav button:hover{
+    background: transparent !important;
+    color: black !important;
+}
+.owl-prev{
+    top: 50%;
+    left: -25px;
+    line-height: 55px !important;
+    height: max-content;
+}
+.owl-next{
+    top: 50%;
+    right: -25px;
+    line-height: 55px !important;
+    height: max-content;
+}
+.owl-carousel img{
+    height: 500px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 55px;
+}
+.owl-dots{
+    margin-top: 25px;
+}
+.owl-dot span{
+    background-color: transparent !important;
+    border: 1px solid black ;
+}
+.owl-dot.active span{
+    background-color: black !important;
+}
+.img-details{
+    box-shadow: 0px 35px 33px -7px rgba(255, 212, 212, 0.2);
+}
+.about-imgs{
+    height: 450px;
+    object-fit: cover;
+    border-radius: 40px 40px 0px 0px;
+}
+.custom-icon{
+    list-style-image: url("../images/arrow-right.svg") !important;
+}
+hr{
+    height: 2px;
+}
+
+@media(max-width:1400px){
+    .owl-carousel img{
+        height: 400px;
+    }
+    .about-imgs{
+        height: 350px;
+    }
+}   
+@media(max-width:1200px){
+    .owl-carousel img{
+        height: 350px;
+    }
+    .about-imgs{
+        height: 300px;
+    }
+}   
+@media(max-width:991px){
+    .owl-carousel img{
+        height: 300px;
+    }
+    .about-imgs{
+        height: 350px;
+    }
+    .nav-list{
+        position: absolute;
+        width: 100%;
+        top: -270px;
+        z-index: 55;
+        left: 0px;
+        display: block;
+        text-align: center;
+        transition: all .3s;
+    }
+
+    .nav-list li{
+        background-color: white;
+        width: 90%;
+        padding: 5px;
+        margin: 10px auto;
+    }
+
+}   
+@media(max-width:767px){
+    .owl-carousel img{
+        height: 350px;
+        border-radius: 30px;
+    }
+    .about-imgs{
+        height: 300px;
+    }
+
+}   
+@media(max-width:576px){
+    
+    .about-imgs{
+        height: 350px;
+    }
+
+}   
