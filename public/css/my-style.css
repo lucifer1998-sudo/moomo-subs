@@ -115,4 +115,7 @@ hr{
         height: 350px;
     }
 
-}   
+}  
+.dropdown:hover .dropdown-menu {
+    display: block;
+} 

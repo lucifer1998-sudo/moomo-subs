@@ -37,15 +37,74 @@
             <li class="">
                 <a href="" class="px-2 mx-5">Fancams</a>
             </li>
+            @if ( auth() -> user() && ( auth() -> user() -> isAdmin() || auth() -> user() -> isSuperAdmin() ) )
+                <li class="">
+                    <div class="dropdown inline-block relative">
+                        <a class="inline-flex items-center">
+                            <span class="mr-1">Admin</span>
+                            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 20 20">
+                                <path
+                                    d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                            </svg>
+                        </a>
+                        <ul class="dropdown-menu absolute hidden text-gray-700 pt-1 z-10">
+                            <li class="">
+                                <a href="{{ route('admin.request.index') }}"
+                                    class="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap">
+                                    Requests
+                                </a>
+                            </li>
+                            <li class="">
+                                <a href="{{ route('admin.videos.index') }}"
+                                    class="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap">
+                                    Videos
+                                </a>
+                            </li>
+                            <li class="">
+                                <a href="{{ route('admin.albums.index') }}"
+                                    class="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap">
+                                    Albums
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            @endif
 
         </ul>
 
         <div>
             <a class="rounded-lg bg-white py-1 px-2 mr-2 inline-block  " href=""><i class="fa fa-search"></i></a>
-            <a class="rounded-full py-1 md:px-6 px-3 lg:text-lg md:text-sm text-sm border border-black hover:bg-black hover:text-white transition duration-150 inline-block "
-                href="">Login</a>
-            <a class="rounded-full py-1 md:px-6 px-3 lg:text-lg md:text-sm text-sm bg-black border border-black text-white hover:bg-transparent  hover:text-black transition duration-150 inline-block "
-                href="">Sign up</a>
+            @if (Route::has('login'))
+                @auth
+                    @if ( Auth::user() )
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <a class="rounded-full py-1 md:px-6 px-3 lg:text-lg 
+                            md:text-sm text-sm bg-black border border-black text-white hover:bg-transparent  
+                            hover:text-black transition duration-150 inline-block "
+                            href="{{ route('logout') }}" onclick="event.preventDefault();
+                                        this.closest('form').submit();">
+                                Log Out
+                            </a>
+                            <!-- <x-dropdown-link :href="route('logout')"
+                                                onclick="event.preventDefault();
+                                        this.closest('form').submit();">
+                                {{ __('Log Out') }}
+                            </x-dropdown-link> -->
+                        </form>
+                    @endif
+                @else
+                    <a class="rounded-full py-1 md:px-6 px-3 lg:text-lg md:text-sm text-sm border border-black hover:bg-black hover:text-white transition duration-150 inline-block "
+                    href="{{ route('login') }}">Login</a>
+                    @if (Route::has('register'))
+                        <a class="rounded-full py-1 md:px-6 px-3 lg:text-lg md:text-sm text-sm bg-black border border-black text-white hover:bg-transparent  hover:text-black transition duration-150 inline-block "
+                            href="{{ route('register') }}">Sign up</a>
+                    @endif
+                @endauth
+            @endif
+            
         </div>
     </nav>
 
