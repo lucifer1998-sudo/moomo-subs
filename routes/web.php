@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\IndexController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,5 +45,7 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     Route::get('/{album}/video/delete/{id}',[AdminController::class,'deleteAlbumVideo'])->name('admin.album.video.delete');
 });
 
+Route::get('/albums',[IndexController::class,'albums'])->name('albums.index');
+Route::get('/album/{id}/videos',[IndexController::class,'albumVideos'])->name('album.videos');
 
 require __DIR__.'/auth.php';
