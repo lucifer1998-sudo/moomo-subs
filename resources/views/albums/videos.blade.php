@@ -22,10 +22,10 @@
               </th>
             </tr>
           </thead>
-          <tbody class="bg-white divide-y divide-gray-200">
+          <tbody class=" divide-y divide-gray-200">
                 @foreach ($album -> videos as $key => $video)
                     <tr>
-                    <td class="px-6 py-4 whitespace-nowrap">
+                    <td class="px-6 py-4 whitespace-nowrap font-bold">
                         {{$key + 1}}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
