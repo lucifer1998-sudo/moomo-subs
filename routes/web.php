@@ -33,10 +33,9 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     Route::get('/requests',[AdminController::class,'requestsListing'])->name('admin.request.index');
     Route::get('/videos',[AdminController::class,'videosListing'])->name('admin.videos.index');
     Route::get('/albums',[AdminController::class,'albumsListing'])->name('admin.albums.index');
-    Route::get('/request/create',[AdminController::class,'addRequest']) -> name('admin.request.create');
+    // Route::get('/request/create',[AdminController::class,'addRequest']) -> name('admin.request.create');
     Route::get('/videos/create',[AdminController::class,'addVideos']) -> name('admin.videos.create');
     Route::get('/albums/create',[AdminController::class,'addAlbums']) -> name('admin.albums.create');
-    Route::post('/request',[AdminController::class,'saveAddRequest']) -> name('admin.request.store');
     Route::get('/request/del/{id}',[AdminController::class,'deleteRequest'])->name('admin.request.delete');
     Route::post('/video',[AdminController::class,'saveVideos']) -> name('admin.videos.store');
     Route::get('/video/del/{id}',[AdminController::class,'deleteVideo'])->name('admin.video.delete');
@@ -44,7 +43,9 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     Route::get('/album/details/{id}',[AdminController::class,'albumDetails']) -> name('admin.album.details');
     Route::get('/{album}/video/delete/{id}',[AdminController::class,'deleteAlbumVideo'])->name('admin.album.video.delete');
 });
-
+Route::get('/request',[IndexController::class,'requestIndex']) -> name('request.index');
+Route::get('/request/create',[IndexController::class,'addRequest']) -> name('request.create');
+Route::post('/request',[IndexController::class,'saveAddRequest']) -> name('request.store');
 Route::get('/albums',[IndexController::class,'albums'])->name('albums.index');
 Route::get('/album/{id}/videos',[IndexController::class,'albumVideos'])->name('album.videos');
 

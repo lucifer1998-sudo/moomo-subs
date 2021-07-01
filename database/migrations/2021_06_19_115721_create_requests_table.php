@@ -17,7 +17,7 @@ class CreateRequestsTable extends Migration
             $table->id();
             $table -> string('title');
             $table -> string('link');
-            $table -> string('sub_status');
+            $table -> string('sub_status') -> default('no');
             $table->timestamps();
         });
     }

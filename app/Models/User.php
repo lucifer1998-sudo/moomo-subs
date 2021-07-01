@@ -61,4 +61,9 @@ class User extends Authenticatable
         if ($roles > 0) return true;
         else return false;
     }
+    public function isSimpleUser(){
+        $roles = $this -> roles() -> where ('role_id',2) -> count();
+        if ($roles > 0) return true;
+        else return false;
+    }
 }

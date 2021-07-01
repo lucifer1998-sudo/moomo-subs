@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="w-full max-w-xl m-auto">
-        <form method="post" action="{{ route('admin.request.store') }}" class="bg-white shadow-md rounded px-8 pt-6 pb-8 m-8">
+        <form method="post" action="{{ route('request.store') }}" class="bg-white shadow-md rounded px-8 pt-6 pb-8 m-8">
             @csrf
             <div class="text-center">
                 <p class="text-2xl font-lato ">Add Requests</p>

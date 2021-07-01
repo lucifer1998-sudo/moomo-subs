@@ -72,7 +72,7 @@ class AdminController extends Controller
             'link'  => $request -> link,
             'sub_status' => $request -> sub
         ]);
-        return redirect() -> route('admin.request.index') -> with('success' , 'Request Succesfully Added');
+        return redirect('/') -> with('success' , 'Request Succesfully Added');
     }
     public function saveVideos(Request $request){
         Videos::create([
