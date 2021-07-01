@@ -19,7 +19,7 @@ class AdminController extends Controller
     }
 
     public function requestsListing(){
-        $requests = RequestModel::all();
+        $requests = RequestModel::orderBy('id','desc')->get();
         return view ('admin.request-index',compact('requests'));
     }
 
