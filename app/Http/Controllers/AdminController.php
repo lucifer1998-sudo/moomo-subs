@@ -115,4 +115,17 @@ class AdminController extends Controller
         RequestModel::find($id)->delete();
         return redirect()->back();
     }
+    public function editRequest($id){
+        $request = RequestModel::find($id);
+        return view('admin.edit-request',compact('request'));
+    }
+    public function updateRequest(Request $request , $id){
+        $req = RequestModel::find($id);
+        $a = $req -> update([
+            'title' => $request -> title,
+            'link'  => $request -> link,
+            'sub_status' => $request -> sub
+        ]);
+        return redirect() -> route('admin.request.index') -> with('success' , 'Request Succesfully Updated');
+    }
 }

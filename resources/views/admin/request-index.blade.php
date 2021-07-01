@@ -60,7 +60,7 @@
                                         <td>
                                             <div class="flex">
                                                 <div class="px-1">
-                                                    <a href="{{route('admin.request.delete',['id'=>$request->id])}}">
+                                                    <a href="{{route('admin.request.edit',['id'=>$request->id])}}">
                                                         <i class="fa fa-edit" title="Edit"></i>
                                                     </a>
                                                 </div>
