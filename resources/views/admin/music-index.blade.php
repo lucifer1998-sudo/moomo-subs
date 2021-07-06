@@ -14,7 +14,7 @@
                 <div class=" -mx-1 lg:-mx-4 p-2">
                     <article class="overflow-hidden rounded-lg shadow-lg">
                         <div class="h-40 flex justify-center items-center">
-                            <a href="{{route('admin.album.details',['id'=>$music ->id])}}">
+                            <a href="{{route('admin.music-index.detail',['id'=>$music ->id])}}">
                                 <!-- <img alt="Placeholder" class="block object-scale-down w-full"
                                     src="\uploads\{{$music->image}}"> -->
                                     <span class="text-center text-3xl" style="color:#FF6D6D;font-family:cursive">

@@ -153,4 +153,8 @@ class AdminController extends Controller
         }
         return redirect()->route('admin.music-index')-> with('success' , 'Music Index Successfully Added');
     }
+    public function musicIndexDetails($id){
+        $music_index = MusicIndex::find($id);
+        return view('admin.music-index-detail',compact('music_index'));
+    }
 }
