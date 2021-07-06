@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\Albums;
 use App\Models\Videos;
+use App\Models\MusicIndex;
 use App\Models\AlbumVideos;
 use Illuminate\Http\Request;
+use App\Models\MusicIndexVideos;
 use App\Models\Request as RequestModel;
 
 class AdminController extends Controller
@@ -127,5 +129,28 @@ class AdminController extends Controller
             'sub_status' => $request -> sub
         ]);
         return redirect() -> route('admin.request.index') -> with('success' , 'Request Succesfully Updated');
+    }
+    public function musicIndex(){
+        $musicIndexes = MusicIndex::all();
+        return view('admin.music-index',compact('musicIndexes'));
+    }
+    public function musicIndexCreate(){
+        $videos = Videos::all();
+        return view('admin.add-music-index',compact('videos'));
+    }
+    public function musicIndexStore(Request $request){
+        $music_index = MusicIndex::create([
+            'year' => $request -> year,
+        ]);
+        
+        if (isset($request->videos) && count($request->videos) > 0){
+            foreach ($request->videos as $key => $video){
+                MusicIndexVideos::create([
+                    'video_id'  => $video,
+                    'music_index_id'  => $music_index -> id
+                ]);
+            }
+        }
+        return redirect()->route('admin.music-index')-> with('success' , 'Music Index Successfully Added');
     }
 }

@@ -43,6 +43,9 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     Route::post('/album',[AdminController::class,'saveAlbums']) -> name('admin.albums.store');
     Route::get('/album/details/{id}',[AdminController::class,'albumDetails']) -> name('admin.album.details');
     Route::get('/{album}/video/delete/{id}',[AdminController::class,'deleteAlbumVideo'])->name('admin.album.video.delete');
+    Route::get('/music-index',[AdminController::class,'musicIndex'])->name('admin.music-index');
+    Route::get('/music-index/create',[AdminController::class,'musicIndexCreate'])->name('admin.music-index.create');
+    Route::post('/music-index',[AdminController::class,'musicIndexStore'])->name('admin.music-index.store');
 });
 Route::get('/request',[IndexController::class,'requestIndex']) -> name('request.index');
 Route::get('/request/create',[IndexController::class,'addRequest']) -> name('request.create');

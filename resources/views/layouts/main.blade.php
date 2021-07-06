@@ -72,6 +72,12 @@
                                     Albums
                                 </a>
                             </li>
+                            <li class="">
+                                <a href="{{ route('admin.music-index') }}"
+                                    class="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap">
+                                    Music Index
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </li>
@@ -114,7 +120,7 @@
     </nav>
 
     <main>
-        <div class="container m-auto mt-20 px-5 md:px-0">
+        <div class="container m-auto mt-14 px-5 md:px-0">
             @if (session('success'))
                 <div class="bg-green-500 p-2 m-4 border border-red-400 text-red-700 px-4 py-3 rounded relative success-alert" role="alert">
                     <span class="block sm:inline text-white text-lg font-lato">{{ session('success') }}</span>
