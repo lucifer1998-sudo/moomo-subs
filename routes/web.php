@@ -53,5 +53,6 @@ Route::get('/request/create',[IndexController::class,'addRequest']) -> name('req
 Route::post('/request',[IndexController::class,'saveAddRequest']) -> name('request.store');
 Route::get('/albums',[IndexController::class,'albums'])->name('albums.index');
 Route::get('/album/{id}/videos',[IndexController::class,'albumVideos'])->name('album.videos');
+Route::get('/music-index',[IndexController::class,'musicIndex'])->name('music-index');
 
 require __DIR__.'/auth.php';

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Albums;
+use App\Models\MusicIndex;
 use Illuminate\Http\Request;
 use App\Models\Request as RequestModel;
 
@@ -33,5 +34,9 @@ class IndexController extends Controller
             'requested_by' => auth()->id()
         ]);
         return redirect() -> route('request.index') -> with('success' , 'Request Succesfully Added');
+    }
+    public function musicIndex(){
+        $musicIndexes = MusicIndex::all();
+        return view('music-index.index',compact('musicIndexes'));
     }
 }

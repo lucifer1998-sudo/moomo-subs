@@ -29,7 +29,7 @@
                 <a href="{{route('albums.index')}}" class="px-2 mx-5">Albums</a>
             </li>
             <li class="">
-                <a href="" class="px-2 mx-5">Music Index</a>
+                <a href="{{route('music-index')}}" class="px-2 mx-5">Music Index</a>
             </li>
             <li class="">
                 <a href="" class="px-2 mx-5">Series</a>
