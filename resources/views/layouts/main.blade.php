@@ -13,6 +13,11 @@
     <link rel="stylesheet" href="{{asset('js/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{asset('/js/OwlCarousel2-2.3.4/dist/assets/owl.theme.default.min.css')}}">
     <title>Document</title>
+    <style>
+        .heading-1{
+            font-size: xxx-large;font-family: cursive;font-style: italic;color: darkmagenta;
+        }
+    </style>
 </head>
 
 <body class="bg-pink-100">

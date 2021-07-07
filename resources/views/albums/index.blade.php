@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="my-20">
-    <h1 class="text-center font-bold text-3xl mb-14">Albums</h1>
+    <h1 class="text-center font-bold text-3xl mb-14 heading-1">Albums</h1>
     <div class="grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 lg:grid-cols-4  gap-5">
         @foreach ($albums as $album)
             <div class="relative">
