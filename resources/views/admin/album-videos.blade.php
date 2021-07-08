@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('content')
-<div class="mx-40">
+<div class="mx-5">
 <div class="flex justify-center">
         <div class="col"><h1 class="text-center font-bold text-2xl mb-14 heading-1">{{$album-> title ?? 'Album'}}</h1></div>
     </div>
@@ -21,6 +21,21 @@
                                 Link
                             </th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" >
+                                Youtube
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" >
+                                Daily Motion
+                            </th>  
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" >
+                                Google Drive
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" >
+                                Other
+                            </th> 
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" >
+                                Other
+                            </th> 
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" >
                                 Action
                             </th>
                             
@@ -35,8 +50,23 @@
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         {{ $video -> title }}
                                     </td>
-                                    <td class="px-6 py-4 whitespace-nowrap ">
+                                    <td class="px-6 py-4 break-all ">
                                         {{ $video -> link }}
+                                    </td>
+                                    <td class="px-6 py-4 break-all">
+                                        {{ $video -> yt }}
+                                    </td>
+                                    <td class="px-6 py-4 break-all ">
+                                        {{ $video -> dm }}
+                                    </td>
+                                    <td class="px-6 py-4 break-all ">
+                                        {{ $video -> gd }}
+                                    </td>
+                                    <td class="px-6 py-4 break-all ">
+                                        {{ $video -> other_1 }}
+                                    </td>
+                                    <td class="px-6 py-4 break-all ">
+                                        {{ $video -> other_2 }}
                                     </td>
                                     @if (auth()->user()->isSuperAdmin())
                                       <td><a href="{{route('admin.album.video.delete',['id'=>$video->id,'album'=>$album->id])}}"><i class="fa fa-trash" title="delete"></i></a></td>

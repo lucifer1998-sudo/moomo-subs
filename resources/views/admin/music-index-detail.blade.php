@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('content')
-<div class="mx-40">
+<div class="mx-5">
     <div class="flex justify-center">
         <div class="col"><h1 class="text-center font-bold text-2xl mb-14" style="color:#FF6D6D;font-family:cursive">{{$music_index->year}}</h1></div>
         
@@ -21,6 +21,21 @@
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                         Link
                     </th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" >
+                        Youtube
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" >
+                        Daily Motion
+                    </th>  
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" >
+                        Google Drive
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" >
+                        Other
+                    </th> 
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" >
+                        Other
+                    </th>  
                     </tr>
                 </thead>
                 <tbody class=" divide-y divide-gray-200">
@@ -32,8 +47,23 @@
                             <td class="px-6 py-4 whitespace-nowrap">
                                 {{ $video -> title }}
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap ">
+                            <td class="px-6 py-4 break-all ">
                                 {{ $video -> link }}
+                            </td>
+                            <td class="px-6 py-4 break-all">
+                                {{ $video -> yt }}
+                            </td>
+                            <td class="px-6 py-4 break-all ">
+                                {{ $video -> dm }}
+                            </td>
+                            <td class="px-6 py-4 break-all ">
+                                {{ $video -> gd }}
+                            </td>
+                            <td class="px-6 py-4 break-all ">
+                                {{ $video -> other_1 }}
+                            </td>
+                            <td class="px-6 py-4 break-all ">
+                                {{ $video -> other_2 }}
                             </td>
                             </tr>
                         @endforeach

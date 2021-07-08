@@ -20,6 +20,21 @@
               <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Link
               </th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" >
+                  Youtube
+              </th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" >
+                  Daily Motion
+              </th>  
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" >
+                  Google Drive
+              </th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" >
+                  Other
+              </th> 
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" >
+                  Other
+              </th> 
             </tr>
           </thead>
           <tbody class=" divide-y divide-gray-200">
@@ -31,8 +46,23 @@
                     <td class="px-6 py-4 whitespace-nowrap">
                         {{ $video -> title }}
                     </td>
-                    <td class="px-6 py-4 whitespace-nowrap ">
+                    <td class="px-6 py-4 break-all ">
                         {{ $video -> link }}
+                    </td>
+                    <td class="px-6 py-4 break-all">
+                        {{ $video -> yt }}
+                    </td>
+                    <td class="px-6 py-4 break-all ">
+                        {{ $video -> dm }}
+                    </td>
+                    <td class="px-6 py-4 break-all ">
+                        {{ $video -> gd }}
+                    </td>
+                    <td class="px-6 py-4 break-all ">
+                        {{ $video -> other_1 }}
+                    </td>
+                    <td class="px-6 py-4 break-all ">
+                        {{ $video -> other_2 }}
                     </td>
                     </tr>
                 @endforeach
