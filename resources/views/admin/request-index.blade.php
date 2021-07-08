@@ -1,8 +1,8 @@
 @extends('layouts.main')
 @section('content')
 <div class="mx-30 mb-10">
-    <div class="flex justify-between">
-        <h1 class="text-center font-bold text-2xl mb-14">Your Requests</h1> 
+    <div class="flex justify-center">
+        <h1 class="text-center font-bold text-2xl mb-14 heading-1">Your Requests</h1> 
     </div>
 
     <div class="flex flex-col">

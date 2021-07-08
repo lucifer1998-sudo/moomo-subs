@@ -2,7 +2,7 @@
 @section('content')
     <div class="mx-40">
         <div class="flex justify-between">
-            <div class="col"><h1 class="text-center font-bold text-2xl mb-14">Music Index</h1></div>
+            <div class="col"><h1 class="text-center font-bold text-2xl mb-14 heading-1">Music Index</h1></div>
             <div class="text-right">
                 <a href="{{route('admin.music-index.create')}}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                     Create Music Index
