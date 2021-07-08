@@ -79,7 +79,12 @@ class AdminController extends Controller
     public function saveVideos(Request $request){
         Videos::create([
             'title' => $request -> title,
-            'link'  => $request -> link
+            'link'  => $request -> link,
+            'gd' => $request -> gd ?? 'N/A',
+            'yt' => $request -> yt ?? 'N/A',
+            'dm' => $request -> dm ?? 'N/A',
+            'other_1' => $request -> other_1 ?? 'N/A',
+            'other_2' => $request -> other_2 ?? 'N/A'
         ]);
         return redirect()->route('admin.videos.index')->with('success','Video Successfully Added');
     }
