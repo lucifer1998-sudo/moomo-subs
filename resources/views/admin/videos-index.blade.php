@@ -1,31 +1,59 @@
 @extends('layouts.main')
 @section('content')
 <div class="mx-40">
-<div class="row">
-  <div class="col"><div class="p-3"><p class="h2">Videos</p></div></div>
-  <div class="col"><div class="p-3 text-right"><a href="{{route('admin.videos.create')}}" class="btn btn-dark">Add Videos</a></div></div>
-</div>
-<table class="table table-borderless mt-2 ">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Video Title</th>
-      <th scope="col">Video Link</th>
-      <th scope="col">Action</th>
-    </tr>
-  </thead>
-  <tbody>
-        @foreach ($videos as $key => $video)
-            <tr>
-                <th scope="row">{{$key+1}}</th>
-                <td class="w-2/5">{{$video -> title}}</td>
-                <td class="w-2/5">{{$video -> link}}</td>
-                @if (auth()->user()->isSuperAdmin())
-                  <td><a href="{{route('admin.video.delete',['id'=>$video->id])}}"><i class="fa fa-trash" title="delete"></i></a></td>
-                @endif
-            </tr>
-        @endforeach
-  </tbody>
-</table>
+    <div class="flex justify-between">
+        <div class="col"><h1 class="text-center font-bold text-2xl mb-14 heading-1">Videos</h1></div>
+        <div class="text-right">
+            <a href="{{route('admin.videos.create')}}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                Add Videos
+            </a>
+        </div>
+    </div>
+
+    <div class="flex flex-col mb-20">
+        <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                #
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Title
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Link
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" >
+                                Action
+                            </th>
+                            
+                            </tr>
+                        </thead>
+                        <tbody class=" divide-y divide-gray-200">
+                                @foreach ($videos as $key => $video)
+                                    <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap font-bold">
+                                        {{$key + 1}}
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        {{ $video -> title }}
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap ">
+                                        {{ $video -> link }}
+                                    </td>
+                                    @if (auth()->user()->isSuperAdmin())
+                                      <td><a href="{{route('admin.video.delete',['id'=>$video->id])}}"><i class="fa fa-trash" title="delete"></i></a></td>
+                                    @endif
+                                    </tr>
+                                @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 @endsection

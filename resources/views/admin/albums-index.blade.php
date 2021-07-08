@@ -1,30 +1,27 @@
 @extends('layouts.main')
 @section('content')
     <div class="mx-40">
-        <div class="row">
-            <div class="col"><div class="p-3"><p class="h2">Albums</p></div></div>
-            <div class="col"><div class="p-3 text-right"><a href="{{route('admin.albums.create')}}" class="btn btn-dark">Add Albums</a></div></div>
+        <div class="flex justify-between">
+            <div class="col"><h1 class="text-center font-bold text-2xl mb-14 heading-1">Albums</h1></div>
+            <div class="text-right">
+                <a href="{{route('admin.albums.create')}}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    Add Albums
+                </a>
+            </div>
         </div>
-        <div class="grid grid-cols-3 m-8">
-            @foreach($albums as $key => $album)
-                <div class=" -mx-1 lg:-mx-4 p-10">
-                    <article class="overflow-hidden rounded-lg shadow-lg">
-                        <div class="h-80">
-                            <a href="{{route('admin.album.details',['id'=>$album ->id])}}">
-                                <img alt="Placeholder" class="block object-scale-down w-full"
-                                    src="\uploads\{{$album->image}}">
-                            </a>
+        <div class="mt-5 mb-20">
+            <div class="grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 lg:grid-cols-3  gap-5">
+                @foreach ($albums as $album)
+                    <div class="relative">
+                        <a href="{{route('admin.album.details',['id'=>$album->id])}}">
+                        <img src="\uploads\{{$album->image}}" class="w-full about-imgs" alt="">
+                        <div class="bg-white w-full text-center font-bold p-3 absolute bottom-0  md:text-sm lg:text:lg text-xs">
+                            {{ $album -> title }}
                         </div>
-                        <header class="flex items-center justify-center my-2 leading-tight p-2 md:p-4">
-                            <h1 class="text-lg">
-                                <span class="no-underline hover:underline text-black" >
-                                    {{$album -> title}}
-                                </span>
-                            </h1>
-                        </header>
-                    </article>
-                </div>
-            @endforeach
-        </div>
+                        </a>
+                    </div>
+                @endforeach
+            </div>
+        </div>    
     </div>
 @endsection
