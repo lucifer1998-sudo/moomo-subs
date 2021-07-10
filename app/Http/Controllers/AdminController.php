@@ -131,7 +131,14 @@ class AdminController extends Controller
         $a = $req -> update([
             'title' => $request -> title,
             'link'  => $request -> link,
-            'sub_status' => $request -> sub
+            'sub_status' => $request -> sub,
+            'embed_yt' => $request -> embed_yt,
+            'yt' => $request -> yt,
+            'dm' => $request -> dm,
+            'gd' => $request -> gd,
+            'other_1' => $request -> other_1,
+            'other_2' => $request -> other_2,
+            'done' => $request -> done ?? 0
         ]);
         return redirect() -> route('admin.request.index') -> with('success' , 'Request Succesfully Updated');
     }
