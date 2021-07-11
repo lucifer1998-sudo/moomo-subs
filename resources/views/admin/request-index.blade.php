@@ -2,7 +2,7 @@
 @section('content')
 <div class="mx-30 mb-10">
     <div class="flex justify-center">
-        <h1 class="text-center font-bold text-2xl mb-14 heading-1">Your Requests</h1> 
+        <h1 class="text-center font-bold text-2xl mb-14 heading-1">Requests</h1> 
     </div>
 
     <div class="flex flex-col">
