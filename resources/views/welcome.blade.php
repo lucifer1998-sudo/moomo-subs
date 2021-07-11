@@ -2,14 +2,20 @@
 
 @section('content')
     <div class="owl-carousel owl-theme">
-        <div class="h-full">
-            <img src="{{asset('/images/img-1.png')}}" class="w-full" alt="">
-            <div class="bg-white py-2 px-5 absolute w-full img-details bottom-0 rounded-3xl">
-                <h1 class="text-xl text-center font-bold">Lorem ipsum</h1>
-                <p class="text-center">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni laudantium</p>
+        @foreach ($requests as $key => $request)
+            <div class="h-full">
+                <a href="">
+                    <img src="{{$request->image}}" class="w-full" alt="">
+                    <div class="bg-white py-2 px-5 absolute w-full img-details bottom-0 rounded-xl">
+                        <h1 class="text-xl text-center font-bold req-title">{{$request -> title}}</h1>
+                        <!-- <p class="text-center">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni laudantium</p> -->
+                    </div>
+                </a>
+                
             </div>
-        </div>
-        <div>
+        @endforeach
+        
+        <!-- <div>
             <img src="{{asset('images/img-2.png')}}" class="w-full" alt="">
             <div class="bg-white py-2 px-5 absolute w-full img-details bottom-0 rounded-3xl">
                 <h1 class="text-xl text-center font-bold">Lorem ipsum</h1>
@@ -43,7 +49,7 @@
                 <h1 class="text-xl text-center font-bold">Lorem ipsum</h1>
                 <p class="text-center">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni laudantium</p>
             </div>
-        </div>
+        </div> -->
     </div>
     <div class="my-20">
         <h1 class="text-center font-bold text-3xl mb-14">About Mamamoo</h1>

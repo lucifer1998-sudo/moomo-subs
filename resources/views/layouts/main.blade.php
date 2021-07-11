@@ -17,6 +17,11 @@
         .heading-1{
             font-size: xxx-large;font-family: cursive;font-style: italic;color: darkmagenta;
         }
+        .req-title{
+            font-family: cursive;
+            font-style: italic;
+            color: crimson;
+        }
     </style>
 </head>
 
