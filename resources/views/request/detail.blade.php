@@ -5,23 +5,23 @@
     </div>
     <div class="text-center my-10">
         @if (isset($request -> yt))
-            <a class="text-center font-bold text-2xl mb-14 req-title" href="{{$request -> yt}}">Youtube</a>
+            <a class="text-center font-bold text-2xl mb-14 req-title" href="{{$request -> yt}}" target="_blank">Youtube</a>
             |
         @endif
         @if(isset($request->dm))
-            <a class="text-center font-bold text-2xl mb-14 req-title" href="{{$request -> dm}}">Dailymotion</a>
+            <a class="text-center font-bold text-2xl mb-14 req-title" href="{{$request -> dm}}" target="_blank">Dailymotion</a>
             |
         @endif
         @if(isset($request->gd))
-            <a class="text-center font-bold text-2xl mb-14 req-title" href="{{$request -> gd}}">Google Drive</a>
+            <a class="text-center font-bold text-2xl mb-14 req-title" href="{{$request -> gd}}" target="_blank">Google Drive</a>
             |
         @endif
         @if(isset($request->other_1))
-            <a class="text-center font-bold text-2xl mb-14 req-title" href="{{$request -> other_1}}">Other</a>
+            <a class="text-center font-bold text-2xl mb-14 req-title" href="{{$request -> other_1}}" target="_blank">Other</a>
             |
         @endif
         @if(isset($request->other_2))
-            <a class="text-center font-bold text-2xl mb-14 req-title" href="{{$request -> other_2}}">Other</a>
+            <a class="text-center font-bold text-2xl mb-14 req-title" href="{{$request -> other_2}}" target="_blank">Other</a>
         @endif
     </div>
 @endsection
