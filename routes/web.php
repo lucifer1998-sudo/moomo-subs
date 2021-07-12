@@ -16,7 +16,7 @@ use App\Http\Controllers\IndexController;
 */
 
 Route::get('/', function () {
-    $requests = \App\Models\Request::take(3)-> orderBy('id','desc')->get();
+    $requests = \App\Models\Request::take(5)-> orderBy('id','desc')->get();
     return view('welcome' , compact('requests'));
 });
 Route::get('/test', function () {
@@ -54,5 +54,6 @@ Route::post('/request',[IndexController::class,'saveAddRequest']) -> name('reque
 Route::get('/albums',[IndexController::class,'albums'])->name('albums.index');
 Route::get('/album/{id}/videos',[IndexController::class,'albumVideos'])->name('album.videos');
 Route::get('/music-index',[IndexController::class,'musicIndex'])->name('music-index');
+Route::get('/request/{id}/detail',[IndexController::class,'requestDetail'])->name('request.detail');
 
 require __DIR__.'/auth.php';

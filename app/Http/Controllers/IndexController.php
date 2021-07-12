@@ -39,4 +39,8 @@ class IndexController extends Controller
         $musicIndexes = MusicIndex::all();
         return view('music-index.index',compact('musicIndexes'));
     }
+    public function requestDetail($id){
+        $request = RequestModel::find($id);
+        return view('request.detail',compact('request'));
+    }
 }

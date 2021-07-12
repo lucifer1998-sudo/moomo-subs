@@ -4,11 +4,10 @@
     <div class="owl-carousel owl-theme">
         @foreach ($requests as $key => $request)
             <div class="h-full">
-                <a href="">
+                <a href="{{route('request.detail',['id'=>$request->id])}}">
                     <img src="{{$request->image}}" class="w-full" alt="">
                     <div class="bg-white py-2 px-5 absolute w-full img-details bottom-0 rounded-xl">
                         <h1 class="text-xl text-center font-bold req-title">{{$request -> title}}</h1>
-                        <!-- <p class="text-center">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni laudantium</p> -->
                     </div>
                 </a>
                 
