@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use App\Models\Albums;
+use App\Models\Series;
 use App\Models\Videos;
 use App\Models\MusicIndex;
 use App\Models\AlbumVideos;
+use App\Models\SeriesVideos;
 use Illuminate\Http\Request;
 use App\Models\MusicIndexVideos;
 use App\Models\Request as RequestModel;
@@ -168,5 +170,48 @@ class AdminController extends Controller
     public function musicIndexDetails($id){
         $music_index = MusicIndex::find($id);
         return view('admin.music-index-detail',compact('music_index'));
+    }
+
+    public function series(){
+        $series = Series::take(5)->orderBy('id','desc')->get();
+        return view('admin.series-index',compact('series'));
+    }
+
+    public function seriesCreate(){
+        $videos = Videos::all();
+        return view('admin.add-series',compact('videos'));
+    }
+
+    public function saveSeries(Request $request){
+        $file = $request -> image;
+        $file_name=mt_rand(0,1000) . '-'.$file->getClientOriginalName();
+        if (!is_dir(public_path().'\uploads')){
+            mkdir(public_path().'\uploads', 0755, true);
+        }
+        $file->move(public_path().'\uploads', $file_name);
+        $series = Series::create([
+            'title' => $request -> title,
+            'image' => $file_name
+        ]);
+        
+        if (isset($request->videos) && count($request->videos) > 0){
+            foreach ($request->videos as $key => $video){
+                SeriesVideos::create([
+                    'video_id'  => $video,
+                    'series_id'  => $series -> id
+                ]);
+            }
+        }
+        return redirect()->route('admin.series')->with('success','Series Successfully Added');
+    }
+
+    public function seriesDetails($id){
+        $series=Series::find($id);
+        return view('admin.series-videos',compact('series'));
+    }
+
+    public function deleteSeriesVideo($series_id,$video_id){
+        SeriesVideos::where(['video_id' => $video_id , 'series_id' => $series_id])->delete();
+        return redirect()->back();
     }
 }

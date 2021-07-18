@@ -47,6 +47,11 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     Route::get('/music-index/create',[AdminController::class,'musicIndexCreate'])->name('admin.music-index.create');
     Route::post('/music-index',[AdminController::class,'musicIndexStore'])->name('admin.music-index.store');
     Route::get('/music-index/details/{id}',[AdminController::class,'musicIndexDetails'])->name('admin.music-index.detail');
+    Route::get('/series',[AdminController::class,'series'])->name('admin.series');
+    Route::get('/series/create',[AdminController::class,'seriesCreate'])->name('admin.series.create');
+    Route::post('/series',[AdminController::class,'saveSeries']) -> name('admin.series.store');
+    Route::get('/series/details/{id}',[AdminController::class,'seriesDetails']) -> name('admin.series.details');
+    Route::get('/series/{series}/video/delete/{id}',[AdminController::class,'deleteSeriesVideo'])->name('admin.series.video.delete');
 });
 Route::get('/request',[IndexController::class,'requestIndex']) -> name('request.index');
 Route::get('/request/create',[IndexController::class,'addRequest']) -> name('request.create');
